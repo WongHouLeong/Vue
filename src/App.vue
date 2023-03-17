@@ -1,9 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <RouterView/>
 </template>
 
-<script>
+<!-- <script>
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -24,3 +23,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+ -->

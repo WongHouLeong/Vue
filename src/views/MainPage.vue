@@ -32,10 +32,10 @@ export default {
                     this.$message.error(response.data.message);
                 }
             } catch (error) {
-                console.error(error);
                 if (error.response && error.response.status !== 401) {
                     this.$message.error('请求失败，请稍后重试');
                 }
+                console.error(error);
             }
         }
     }

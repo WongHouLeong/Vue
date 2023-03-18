@@ -1,16 +1,28 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import LoginPage from '@/views/LoginPage.vue'
 import MainPage from '@/views/MainPage.vue'
+
+//前置函数
+function requireAuth(to, from, next) {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    next({ name: 'LoginPage' });
+  } else {
+    next();
+  }
+}
+
 const routes = [
   {
-    path: '/', //主页 根目录
+    path: '/LoginPage', //主页 根目录
     name: 'LoginPage',
     component: LoginPage
   },
   {
-    path: '/MainPage',
+    path: '/',
     name: 'MainPage',
-    component: MainPage
+    component: MainPage,
+    beforeEnter: requireAuth
   }
 ]
 const router = createRouter({
